@@ -165,3 +165,5 @@ mysql --version
     1. You should have already created the linux user from previous step. Now, make sure user “training” has both a linux and HDFS home directory
 
 
+
+# 여기까지 했습니다.. 시간이 너무 부족했어요 ㅠㅠㅠㅠ...
