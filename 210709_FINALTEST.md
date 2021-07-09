@@ -141,6 +141,18 @@ mysql --version
 
 ## c. Install Cloudera Manager
 ### i. Specifically, you MUST install CDH version 5.16.2 
+
+![a-11](https://user-images.githubusercontent.com/83220832/125046458-fef5a000-e0d8-11eb-972e-bc6a890574e5.PNG)
+![a-12](https://user-images.githubusercontent.com/83220832/125047400-e6d25080-e0d9-11eb-85f6-137018ab7530.PNG)
+![a-13](https://user-images.githubusercontent.com/83220832/125047687-2ef17300-e0da-11eb-9329-52d7e2de6b4a.PNG)
+![a-14](https://user-images.githubusercontent.com/83220832/125048177-9d363580-e0da-11eb-9dbc-951394f3f40e.PNG)
+![a-15](https://user-images.githubusercontent.com/83220832/125048325-c22aa880-e0da-11eb-89cb-4bf3c45fd4bc.PNG)
+![a-16](https://user-images.githubusercontent.com/83220832/125048329-c35bd580-e0da-11eb-80eb-449d2cb32ed2.PNG)
+![a-17](https://user-images.githubusercontent.com/83220832/125048602-0f0e7f00-e0db-11eb-930f-aa72f73d4b1a.PNG)
+![a-18](https://user-images.githubusercontent.com/83220832/125048851-4bda7600-e0db-11eb-9ade-b150ce015266.PNG)
+![a-19](https://user-images.githubusercontent.com/83220832/125048951-6876ae00-e0db-11eb-8b24-ddef354f8539.PNG)
+
+
 ### ii. The Cluster does not have to be in HA mode.
 ### iii. Make sure that the following services (and any necessary services to install that service) are installed:
     1. HDFS
@@ -151,3 +163,5 @@ mysql --version
     6. HUE
 ### iv. In you cluster, create a user named “training” with password “training”
     1. You should have already created the linux user from previous step. Now, make sure user “training” has both a linux and HDFS home directory
+
+
