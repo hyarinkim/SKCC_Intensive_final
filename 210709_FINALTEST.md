@@ -73,16 +73,72 @@ getent passwd training
 ```
    ![a-7](https://user-images.githubusercontent.com/83220832/125043590-0ebfb500-e0d6-11eb-8c0e-b9c6f75ec37c.PNG)
 
-
+>> 나머지는 CHD Install guiede 따라서 진행 
 
 ## b. Install a MySQl server
-### i. Use MariaDB as the database for all the services. You may choose your 
-own username and passwords but make a record of it so that we may 
-access them.
+1) install MariaDB on cm
+```
+sudo yum install -y mariadb-server
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
+sudo /usr/bin/mysql_secure_installation
+```
+*비밀번호 설정 (id:root/pw:admin)
+2) install 확인 및 접속
+```
+ mysql -u root -p
+ + password 입력
+```
+3) create databases & user
+```
+CREATE DATABASE scm DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON scm.* TO 'scm-user'@'%' IDENTIFIED BY 'somepassword';
+CREATE DATABASE amon DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON amon.* TO 'amon-user'@'%' IDENTIFIED BY 'somepassword';
+CREATE DATABASE rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON rman.* TO 'rman-user'@'%' IDENTIFIED BY 'somepassword';
+CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON hue.* TO 'hue-user'@'%' IDENTIFIED BY 'somepassword';
+CREATE DATABASE metastore DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON metastore.* TO 'metastore-user'@'%' IDENTIFIED BY 
+'somepassword';
+CREATE DATABASE sentry DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON sentry.* TO 'sentry-user'@'%' IDENTIFIED BY 'somepassword';
+CREATE DATABASE oozie DEFAULT CHARACTER SET utf8 DEFAULT COLLATE 
+utf8_general_ci;
+GRANT ALL ON oozie.* TO 'oozie-user'@'%' IDENTIFIED BY 'somepassword';
+GRANT ALL ON test.* TO 'eduuser'@'%' IDENTIFIED BY 'letmein';
+FLUSH PRIVILEGES;
+SHOW DATABASES;
+EXIT;
+```
+
 ### ii. List the following in your GitHub
     1. A command and output that shows the hostname of your database server
+```    
+hostname
+```   
+![a-8](https://user-images.githubusercontent.com/83220832/125044137-a45b4480-e0d6-11eb-9533-e266b9714c3c.PNG)
+    
     2. A command and output that reports the database server version
+``` 
+mysql --version
+``` 
+![a-9](https://user-images.githubusercontent.com/83220832/125044240-bd63f580-e0d6-11eb-9ad0-e3ac694afa03.PNG)
+
     3. A command and output that lists all the databases in the server
+ ``` 
+ show databases;
+ ``` 
+![a-10](https://user-images.githubusercontent.com/83220832/125044367-dc628780-e0d6-11eb-8028-c44e60f66e3d.PNG)
+
+
 ## c. Install Cloudera Manager
 ### i. Specifically, you MUST install CDH version 5.16.2 
 ### ii. The Cluster does not have to be in HA mode.
